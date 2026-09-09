@@ -1,0 +1,555 @@
+
+    :root {
+
+        /* 🌿 Fondo principal */
+        --green-background: #2D481D;
+
+        /* ✨ Luz ambiental */
+        --green-gold: #D4E05B;
+
+        /* 🌼 Crema */
+        --cream: #FFF1A1;
+
+        /* ✨ Blanco cálido */
+        --warm-white: #FFFAAD;
+
+        /* Textos */
+        --text: #FFF1A1;
+
+    }
+
+
+    /* =================================================
+       FONDO GENERAL
+    ================================================= */
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+
+        margin: 0;
+
+        min-height: 100vh;
+
+        background:
+
+            /* Luz verde dorada */
+            radial-gradient(
+                circle at 50% 20%,
+                rgba(212, 224, 91, .16),
+                transparent 32%
+            ),
+
+            /* Luz crema */
+            radial-gradient(
+                circle at 80% 70%,
+                rgba(255, 241, 161, .07),
+                transparent 30%
+            ),
+
+            /* Verde principal */
+            linear-gradient(
+                135deg,
+                #2D481D 0%,
+                #253D19 45%,
+                #2D481D 100%
+            );
+
+        color: var(--text);
+
+        overflow-x: hidden;
+    }
+
+
+    /* =================================================
+       TODAS LAS SECCIONES
+       
+       TODAS utilizan exactamente la misma base.
+    ================================================= */
+
+    .section {
+
+        position: relative;
+
+        min-height: 100vh;
+
+        background:
+
+            radial-gradient(
+                circle at 50% 30%,
+                rgba(212, 224, 91, .12),
+                transparent 40%
+            ),
+
+            linear-gradient(
+                180deg,
+                rgba(45, 72, 29, .96),
+                rgba(45, 72, 29, .96)
+            );
+
+        color: var(--text);
+
+        overflow: hidden;
+    }
+
+
+    /* Luz ambiental común */
+
+    .section::before {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        background:
+
+            radial-gradient(
+                circle at 20% 25%,
+                rgba(212, 224, 91, .07),
+                transparent 28%
+            ),
+
+            radial-gradient(
+                circle at 80% 75%,
+                rgba(255, 241, 161, .06),
+                transparent 30%
+            );
+
+        z-index: 0;
+    }
+
+
+    /* Contenido por encima del fondo */
+
+    .section > * {
+
+        position: relative;
+
+        z-index: 1;
+    }
+
+
+    /* =================================================
+       TEXTO
+    ================================================= */
+
+    h1,
+    h2,
+    h3 {
+
+        color: var(--cream);
+    }
+
+
+    .eyebrow {
+
+        color: var(--green-gold);
+    }
+
+
+    .gold-line {
+
+        background: var(--green-gold);
+    }
+
+
+    .ornament {
+
+        color: var(--warm-white);
+
+        text-shadow:
+            0 0 8px rgba(255, 250, 173, .6),
+            0 0 20px rgba(212, 224, 91, .3);
+    }
+
+
+    /* =================================================
+       LUCIÉRNAGAS
+    ================================================= */
+
+    #fireflies {
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        z-index: 10;
+
+        overflow: hidden;
+    }
+
+
+    .firefly {
+
+        background: var(--warm-white);
+
+        box-shadow:
+
+            0 0 5px var(--warm-white),
+
+            0 0 12px var(--green-gold),
+
+            0 0 25px rgba(255, 250, 173, .75),
+
+            0 0 45px rgba(212, 224, 91, .35);
+    }
+
+
+    /* =================================================
+       DECORACIÓN FIJA
+    ================================================= */
+
+    .fixed-decoration {
+
+        position: fixed;
+
+        inset: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        pointer-events: none;
+
+        z-index: 20;
+
+        overflow: hidden;
+    }
+
+
+    /* =================================================
+       TIANA
+    ================================================= */
+
+    .floating-character {
+
+        position: absolute;
+
+        right: 15px;
+
+        bottom: 5px;
+
+        width: clamp(140px, 15vw, 230px);
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-end;
+
+        animation:
+            characterFloat 5s ease-in-out infinite;
+
+        z-index: 5;
+    }
+
+
+    .character-soft-edge {
+
+        position: relative;
+
+        width: 100%;
+
+        border-radius:
+            45% 45% 35% 35%;
+
+        overflow: hidden;
+
+        mask-image:
+            radial-gradient(
+                ellipse at center,
+                black 52%,
+                rgba(0,0,0,.88) 68%,
+                transparent 100%
+            );
+
+        -webkit-mask-image:
+            radial-gradient(
+                ellipse at center,
+                black 52%,
+                rgba(0,0,0,.88) 68%,
+                transparent 100%
+            );
+
+        filter:
+
+            drop-shadow(
+                0 8px 15px rgba(0,0,0,.35)
+            )
+
+            drop-shadow(
+                0 0 20px rgba(212,224,91,.18)
+            );
+    }
+
+
+    .character-soft-edge img {
+
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
+    }
+
+
+    .character-soft-edge::after {
+
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        right: 0;
+
+        bottom: 0;
+
+        height: 35%;
+
+        background:
+
+            linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(45,72,29,.10) 45%,
+                rgba(45,72,29,.95) 100%
+            );
+
+        pointer-events: none;
+    }
+
+
+    @keyframes characterFloat {
+
+        0% {
+            transform:
+                translateY(0)
+                rotate(0deg);
+        }
+
+        25% {
+            transform:
+                translateY(-5px)
+                rotate(-0.8deg);
+        }
+
+        50% {
+            transform:
+                translateY(-9px)
+                rotate(0.5deg);
+        }
+
+        75% {
+            transform:
+                translateY(-4px)
+                rotate(0.8deg);
+        }
+
+        100% {
+            transform:
+                translateY(0)
+                rotate(0deg);
+        }
+
+    }
+
+
+    /* =================================================
+       LOTOS
+    ================================================= */
+
+    .corner-lotus {
+
+        position: absolute;
+
+        width: 130px;
+
+        height: 100px;
+
+        pointer-events: none;
+
+        filter:
+
+            drop-shadow(
+                0 5px 10px rgba(0,0,0,.30)
+            )
+
+            drop-shadow(
+                0 0 15px rgba(212,224,91,.12)
+            );
+
+        animation:
+            cornerLotusFloat 7s ease-in-out infinite;
+    }
+
+
+    .lotus-top-left {
+
+        top: 25px;
+
+        left: 20px;
+
+        transform: rotate(-15deg);
+    }
+
+
+    .lotus-top-right {
+
+        top: 25px;
+
+        right: 20px;
+
+        transform:
+            rotate(15deg)
+            scaleX(-1);
+
+        animation-delay: -2s;
+    }
+
+
+    .lotus-bottom-left {
+
+        bottom: 20px;
+
+        left: 20px;
+
+        transform:
+            rotate(-5deg)
+            scale(.9);
+
+        animation-delay: -4s;
+    }
+
+
+    @keyframes cornerLotusFloat {
+
+        0% {
+            translate: 0 0;
+        }
+
+        50% {
+            translate: 0 -7px;
+        }
+
+        100% {
+            translate: 0 0;
+        }
+
+    }
+
+
+    .lotus span {
+
+        background:
+
+            linear-gradient(
+                180deg,
+                var(--green-gold),
+                var(--cream) 40%,
+                #A9B847 100%
+            );
+
+        opacity: .88;
+    }
+
+
+    .lotus span:nth-child(8) {
+
+        background:
+
+            radial-gradient(
+                circle,
+                var(--warm-white) 0 30%,
+                var(--green-gold) 40%,
+                #9A9F32 100%
+            );
+
+        box-shadow:
+
+            0 0 8px rgba(255,250,173,.65),
+
+            0 0 18px rgba(212,224,91,.30);
+    }
+
+
+    /* =================================================
+       RESPONSIVE
+    ================================================= */
+
+    @media (max-width: 768px) {
+
+        .corner-lotus {
+
+            width: 90px;
+
+            height: 75px;
+        }
+
+
+        .lotus-top-left {
+
+            top: 15px;
+
+            left: 5px;
+        }
+
+
+        .lotus-top-right {
+
+            top: 15px;
+
+            right: 5px;
+        }
+
+
+        .lotus-bottom-left {
+
+            bottom: 10px;
+
+            left: 5px;
+        }
+
+
+        .floating-character {
+
+            right: 3px;
+
+            bottom: 3px;
+
+            width: 110px;
+        }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+        .floating-character {
+
+            width: 95px;
+        }
+
+
+        .corner-lotus {
+
+            width: 75px;
+
+            height: 65px;
+        }
+
+    }
+
+
+```
