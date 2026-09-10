@@ -493,7 +493,7 @@
 
 
                 <h3>
-                    Salón de Eventos Glamur
+                    Salón de Eventos GLAMOUR
                 </h3>
 
 
@@ -669,76 +669,85 @@
          SECCIÓN 7 — CONFIRMACIÓN
     ================================================== -->
 
-    <section id="confirmacion"
-             class="confirmation section">
+ <section id="confirmacion"
+         class="confirmation section">
 
-        <div class="confirmation-glow"></div>
+    <div class="confirmation-glow"></div>
 
+    <div class="section-inner reveal">
 
-        <div class="section-inner reveal">
+        <span class="eyebrow">
+            MI NOCHE ESPECIAL
+        </span>
 
-            <span class="eyebrow">
-                MI NOCHE ESPECIAL
+        <h2>
+            ¿Me acompañas?
+        </h2>
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <p>
+            Por favor, confirma tu asistencia
+            para compartir juntos
+            este gran día especial.
+        </p>
+
+        <button type="button"
+                class="confirm-button"
+                id="confirmButton">
+
+            CONFIRMAR MI ASISTENCIA
+
+            <span>
+                ✦
             </span>
 
+        </button>
 
-            <h2>
-                ¿Me acompañas?
-            </h2>
+        <div class="confirmation-form"
+             id="confirmationForm">
 
+            <label for="guestName">
+                Escribe tu nombre completo
+            </label>
 
-            <div class="ornament">
-                ✦
-            </div>
+            <input
+                type="text"
+                id="guestName"
+                placeholder="Ej. Gabriel Enrique Flores Laura"
+                autocomplete="name"
+            >
 
+            <button type="button"
+                    id="whatsappButton">
 
-            <p>
+                CONFIRMAR EN WHATSAPP
 
-                Por favor, confirma tu asistencia
-                para compartir juntos
-                este gran día especial.
-
-            </p>
-
-
-            <a href="https://wa.me/59161607441?text=Hola%20Kheyli%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20A%C3%B1os%20el%2025%20de%20septiembre%20de%202026.%20%C2%A1Nos%20vemos%20en%20tu%20gran%20d%C3%ADa%21"
-
-               target="_blank"
-
-               rel="noopener noreferrer"
-
-               class="confirm-button">
-
-                CONFIRMAR MI ASISTENCIA
-
-                <span>
-                    ✦
-                </span>
-
-            </a>
-
-
-            <div class="final-signature">
-
-                <span>
-                    Con cariño
-                </span>
-
-
-                <h3>
-                    Kheyli Brigith
-                </h3>
-
-
-                <small>
-                    XV · 2026
-                </small>
-
-            </div>
+            </button>
 
         </div>
 
-    </section>
+        <div class="final-signature">
+
+            <span>
+                Con cariño
+            </span>
+
+            <h3>
+                Kheyli Brigith
+            </h3>
+
+            <small>
+                XV · 2026
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 
@@ -899,6 +908,52 @@
 ====================================================== -->
 
 <script src="index.js"></script>
+
+
+<script>
+
+const confirmButton = document.getElementById("confirmButton");
+const confirmationForm = document.getElementById("confirmationForm");
+const whatsappButton = document.getElementById("whatsappButton");
+const guestName = document.getElementById("guestName");
+
+
+// Mostrar formulario
+confirmButton.addEventListener("click", () => {
+
+    confirmationForm.classList.add("show");
+
+    guestName.focus();
+
+});
+
+
+// Abrir WhatsApp con el nombre
+whatsappButton.addEventListener("click", () => {
+
+    const name = guestName.value.trim();
+
+    if (name === "") {
+
+        guestName.focus();
+
+        return;
+
+    }
+
+    const message =
+        `Hola Kheyli, confirmo mi asistencia a tus XV Años el 25 de septiembre de 2026. ¡Nos vemos en tu gran día! Att: ${name}`;
+
+    const phone = "59161607441";
+
+    const whatsappURL =
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+});
+
+</script>
 
 
 </body>

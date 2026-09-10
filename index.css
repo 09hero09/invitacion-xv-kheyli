@@ -2384,3 +2384,94 @@ body::before {
         transition-duration: .01ms !important;
     }
 }
+
+.confirmation-form {
+    max-width: 400px;
+    margin: 25px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.confirmation-form.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.confirmation-form label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+}
+
+.confirmation-form input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(240, 228, 154, .45);
+    border-radius: 8px;
+
+    background: rgba(20, 35, 24, .45);
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.confirmation-form input::placeholder {
+    color: rgba(255, 255, 255, .55);
+}
+
+.confirmation-form input:focus {
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 0 15px rgba(240, 228, 154, .15);
+}
+
+#whatsappButton {
+    padding: 13px 20px;
+
+    border: 1px solid var(--gold-light);
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--gold-light);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+#whatsappButton:hover {
+    background: var(--gold-light);
+    color: #1e2d21;
+
+    transform: translateY(-2px);
+}
