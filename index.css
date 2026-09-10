@@ -1145,7 +1145,7 @@ body::before {
 
     inset: -30px;
 
-    border: 1px solid rgba(240, 228, 154, .30);
+    border: 1px solid rgba(207, 185, 44, 0.3);
 
     z-index: 0;
 }
