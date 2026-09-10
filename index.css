@@ -1084,6 +1084,35 @@ body::before {
     opacity: 0;
     animation: photoFade 8s infinite ease-in-out;
 }
+/* =========================================================
+   TRANSICIÓN ENTRE 3 FOTOS
+   ========================================================= */
+
+/* Todas las fotos */
+.photo-frame .moment-photo {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    filter:
+        saturate(.85)
+        contrast(1.03)
+        brightness(.95);
+
+    box-shadow:
+        0 20px 50px rgba(20, 42, 26, .30);
+
+    opacity: 0;
+
+    /* IMPORTANTE: ahora son 12 segundos */
+    animation: photoFade 12s infinite ease-in-out;
+}
+
 
 /* Primera foto */
 .photo-frame .photo-one {
@@ -1091,35 +1120,46 @@ body::before {
     animation-delay: 0s;
 }
 
+
 /* Segunda foto */
 .photo-frame .photo-two {
     z-index: 4;
     animation-delay: 4s;
 }
 
-/* Efecto de aparición y desaparición */
+
+/* Tercera foto */
+.photo-frame .photo-tree {
+    z-index: 3;
+    animation-delay: 8s;
+}
+
+
+/* =========================================================
+   EFECTO DE APARICIÓN Y DESAPARICIÓN
+   ========================================================= */
+
 @keyframes photoFade {
 
     0% {
         opacity: 0;
     }
 
-    10% {
+    8% {
         opacity: 1;
     }
 
-    40% {
+    25% {
         opacity: 1;
     }
 
-    50% {
+    33% {
         opacity: 0;
     }
 
     100% {
         opacity: 0;
     }
-
 }
 
 .photo-frame::before {
