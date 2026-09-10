@@ -132,8 +132,8 @@ body::before {
     background:
         radial-gradient(
             circle at center,
-            rgba(159, 186, 120, .96) 0%,
-            rgba(89, 128, 76, .97) 35%,
+            rgba(96, 124, 57, 0.96) 0%,
+            rgba(86, 135, 69, 0.97) 35%,
             rgba(48, 82, 53, .98) 70%,
             rgba(31, 54, 38, 1) 100%
         );
@@ -157,7 +157,7 @@ body::before {
     display: block;
 
     letter-spacing: 5px;
-    font-size: 12px;
+    font-size: 25px;
 
     color: var(--gold-light);
 }
@@ -178,7 +178,7 @@ body::before {
 }
 
 .loader-content span:last-child {
-    font-size: 11px;
+    font-size: 25px;
     letter-spacing: 8px;
 }
 
@@ -199,7 +199,7 @@ body::before {
 
 @keyframes loaderIn {
     from {
-        opacity: 0;
+        opacity: 30;
         transform: translateY(30px);
     }
 
@@ -514,7 +514,7 @@ body::before {
 
     color: rgba(255, 249, 220, .70);
 
-    font-size: 29px;
+    font-size: 15px;
 
     letter-spacing: 3px;
 
@@ -1055,17 +1055,23 @@ body::before {
     margin: 40px auto;
 }
 
-.photo-frame img {
+.photo-frame {
     position: relative;
+    width: min(75vw, 400px);
+    aspect-ratio: 3 / 4;
+    margin: 40px auto;
+}
+
+/* Las dos fotos ocupan exactamente el mismo espacio */
+.photo-frame .moment-photo {
+    position: absolute;
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-
     display: block;
-
-    z-index: 5;
 
     filter:
         saturate(.85)
@@ -1074,6 +1080,46 @@ body::before {
 
     box-shadow:
         0 20px 50px rgba(20, 42, 26, .30);
+
+    opacity: 0;
+    animation: photoFade 8s infinite ease-in-out;
+}
+
+/* Primera foto */
+.photo-frame .photo-one {
+    z-index: 5;
+    animation-delay: 0s;
+}
+
+/* Segunda foto */
+.photo-frame .photo-two {
+    z-index: 4;
+    animation-delay: 4s;
+}
+
+/* Efecto de aparición y desaparición */
+@keyframes photoFade {
+
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
 }
 
 .photo-frame::before {
@@ -1707,6 +1753,7 @@ body::before {
         drop-shadow(0 12px 20px rgba(30, 54, 33, .30))
         drop-shadow(0 0 20px rgba(220, 210, 120, .22))
         drop-shadow(0 0 45px rgba(197, 215, 122, .14));
+        
 }
 
 .character-soft-edge {
@@ -1717,6 +1764,7 @@ body::before {
     display: flex;
 
     justify-content: center;
+    
 }
 
 
@@ -1745,7 +1793,8 @@ body::before {
 
     mix-blend-mode: multiply;
 
-    opacity: .75;
+    opacity: 8.75;
+    border-radius: 80px;
 }
 
 .floating-character img {
@@ -1759,7 +1808,7 @@ body::before {
 
     object-fit: contain;
 
-    border-radius: 45px;
+    border-radius: 80px;
 
     /*
        Hace que el personaje se mezcle mejor con el fondo.
@@ -1774,8 +1823,8 @@ body::before {
     -webkit-mask-image:
         radial-gradient(
             ellipse at center,
-            black 55%,
-            transparent 95%
+            black 45%,
+            transparent 75%
         );
 }
 
