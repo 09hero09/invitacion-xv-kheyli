@@ -85,19 +85,33 @@
 </audio>
 
 
-<button id="musicButton"
-        class="music-button">
+<div class="music-player" id="musicPlayer">
 
-    <span class="music-icon">
-        ♫
-    </span>
+    <button id="musicButton"
+            class="music-button"
+            aria-label="Reproducir música">
 
-    <span id="musicText">
-        Música
-    </span>
+        <span class="music-icon" id="musicIcon">
+            ▶
+        </span>
 
-</button>
+    </button>
 
+
+    <div class="music-info">
+
+        <span class="music-title">
+            Reproduce mi tema
+        </span>
+
+        <span class="music-status"
+              id="musicText">
+            Mi canción especial
+        </span>
+
+    </div>
+
+</div>
 
 <!-- =====================================================
      NAVEGACIÓN
@@ -740,7 +754,7 @@
             </h3>
 
             <small>
-                XV · 2026
+                25-septiembre-2026
             </small>
 
         </div>

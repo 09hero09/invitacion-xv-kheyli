@@ -1335,66 +1335,281 @@ body::before {
     letter-spacing: 4px;
 }
 
+/* ========================================
+   REPRODUCTOR DE MÚSICA FLOTANTE
+======================================== */
 
-/* =========================================================
-   MÚSICA
-   ========================================================= */
+.music-player {
 
-.music-button {
     position: fixed;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
 
     z-index: 1000;
 
-    top: 35px;
-    right: 35px;
-
     display: flex;
-
     align-items: center;
 
-    gap: 10px;
+    gap: 12px;
 
-    border: 1px solid rgba(240, 228, 154, .55);
+    padding: 8px 16px 8px 8px;
+
+    border:
+        1px solid
+        rgba(240, 228, 154, .45);
 
     background:
-        rgba(45, 78, 48, .55);
+        rgba(31, 55, 35, .72);
 
-    color: var(--gold-light);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    padding: 10px 20px;
+    box-shadow:
+        0 8px 25px
+        rgba(20, 42, 26, .20);
 
-    backdrop-filter: blur(10px);
+    border-radius: 40px;
 
-    -webkit-backdrop-filter: blur(10px);
+    transition:
+        background .4s ease,
+        box-shadow .4s ease,
+        transform .4s ease;
+
+}
+
+
+/* ========================================
+   BOTÓN PLAY / PAUSE
+======================================== */
+
+.music-button {
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(240, 228, 154, .65);
+
+    border-radius: 50%;
+
+    background:
+        rgba(240, 228, 154, .12);
+
+    color:
+        var(--gold-light);
 
     cursor: pointer;
 
-    font-size: 15px;
+    padding: 0;
 
-    letter-spacing: 3px;
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
 
-    transition: .4s;
 }
+
+
+/* ========================================
+   HOVER
+======================================== */
 
 .music-button:hover {
-    background: rgba(54, 91, 55, .72);
+
+    background:
+        rgba(240, 228, 154, .22);
 
     box-shadow:
-        0 0 20px rgba(240, 228, 154, .15);
+        0 0 15px
+        rgba(240, 228, 154, .18);
+
+    transform:
+        scale(1.08);
+
 }
+
+
+/* ========================================
+   ICONO
+======================================== */
 
 .music-icon {
-    font-size: 18px;
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    margin-left: 2px;
+
 }
 
-.music-button.playing .music-icon {
-    animation: musicSpin 2s linear infinite;
+
+/* ========================================
+   INFORMACIÓN DEL TEMA
+======================================== */
+
+.music-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 145px;
+
+    line-height: 1.2;
+
 }
 
-@keyframes musicSpin {
-    to {
-        transform: rotate(360deg);
+
+/* Título */
+
+.music-title {
+
+    color:
+        var(--gold-light);
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* Estado */
+
+.music-status {
+
+    margin-top: 2px;
+
+    color:
+        rgba(255, 255, 255, .65);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ========================================
+   CUANDO ESTÁ REPRODUCIENDO
+======================================== */
+
+.music-player.playing {
+
+    background:
+        rgba(45, 78, 48, .82);
+
+    box-shadow:
+        0 8px 30px
+        rgba(20, 42, 26, .30);
+
+}
+
+
+/* Animación del botón */
+
+.music-player.playing .music-button {
+
+    animation:
+        musicPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 0
+            rgba(240, 228, 154, 0);
+
     }
+
+    50% {
+
+        box-shadow:
+            0 0 15px
+            rgba(240, 228, 154, .25);
+
+    }
+
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+
+    .music-player {
+
+        top: 18px;
+
+        padding:
+            7px 13px 7px 7px;
+
+        gap: 9px;
+
+        max-width:
+            calc(100vw - 30px);
+
+    }
+
+
+    .music-button {
+
+        width: 35px;
+        height: 35px;
+
+    }
+
+
+    .music-icon {
+
+        font-size: 12px;
+
+    }
+
+
+    .music-info {
+
+        min-width: 125px;
+
+    }
+
+
+    .music-title {
+
+        font-size: 14px;
+
+    }
+
+
+    .music-status {
+
+        font-size: 9px;
+
+    }
+
 }
 
 
@@ -2053,8 +2268,7 @@ body::before {
     width: 105px;
     height: 65px;
 
-    left: 48px;
-    bottom: 8px;
+    bottom: 25px;
 
     transform-origin: center bottom;
 
